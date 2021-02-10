@@ -1,3 +1,6 @@
+function getRandomInt(max) {
+  return Math.floor(Math.random() * Math.floor(max));
+}
 function randomname() {
   var vowel = ['ai', 'ee', 'oa', 'ea', 'ou', 'oi', 'ie', "a", "a", "e", "e", "e", "i", "i", "i","o", "o", "o", "u", "u", "u", "u", 'ai', 'ee', 'oa', 'ea', "a", "a", "e", "e", "e", "i", "i", "i","o", "o", "o", "u", "u", "u", "u", 'ai', 'ee', 'oa', 'ea', "a", "a", "e", "e", "e", "i", "i", "i","o", "o", "o", "u", "u", "u", "u", 'à', 'ä', 'ó', 'õ', 'ê', 'ï', 'í', 'ù', 'û'];
   var vnoe = ['ai', 'ee', 'oa', 'ea', 'ai', 'ee', 'oa', 'ea', "a", "a", "i", "i", "i","o", "o", "o", "u", "u", 'ai', 'ee', 'oa', 'ea', "a", "a", "i", "i", "i","o", "o", "o", "u", "u", "a", "a", "i", "i", "i","o", "o", "o", "u", "u", 'à', 'ä', 'ó', 'õ', 'ï', 'í', 'ù', 'û'];
@@ -7,25 +10,26 @@ function randomname() {
   var ven = ['aw', 'ay', 'ow', 'ia'];
   var conso = ['b', 'c', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'm', 'n', 'p', 'r', 's', 't', 'v', 'w', 'x', 'y', 'z'];
   var fantasyname = '';
-  var fantasynametype = [1,2,3,4,5,6,7,8,9][Math.random(6)];
-  if (fantasynametype == 1) {
-    fantasyname = conso_be[Math.random(conso_be.size())] + vowel[Math.random(vowel.size())]+conso_en[Math.random(conso_en.size())];
+  var fantasynametype = getRandomInt(7);
+  if (fantasynametype == 0) {
+    fantasyname = conso_be[getRandomInt(conso_be.length)] + ven[getRandomInt(ven.length)];
+  } else if (fantasynametype == 1) {
+    fantasyname = conso_be[getRandomInt(conso_be.length)] + vowel[getRandomInt(vowel.length)]+conso_en[getRandomInt(conso_en.length)];
   } else if (fantasynametype == 2) {
-    fantasyname = conso_bo[Math.random(conso_bo.size())] + vowel[Math.random(vowel.size())]+conso_en[Math.random(conso_en.size())];
+    fantasyname = conso_bo[getRandomInt(conso_bo.length)] + vowel[getRandomInt(vowel.length)]+conso_en[getRandomInt(conso_en.length)];
   } else if (fantasynametype == 3) {
-    fantasyname = conso_bo[Math.random(conso_bo.size())] + vowel[Math.random(vowel.size())]+conso_en[Math.random(conso_en.size())]+vowel[Math.random(vowel.size())];
+    fantasyname = conso_bo[getRandomInt(conso_bo.length)] + vowel[getRandomInt(vowel.length)]+conso_en[getRandomInt(conso_en.length)]+vowel[getRandomInt(vowel.length)];
   } else if (fantasynametype == 4) {
-    fantasyname = conso_bo[Math.random(conso_bo.size())] + vowel[Math.random(vowel.size())]+conso_en[Math.random(conso_en.size())]+vowel[Math.random(vowel.size())];
+    fantasyname = conso_bo[getRandomInt(conso_bo.length)] + vowel[getRandomInt(vowel.length)]+conso_en[getRandomInt(conso_en.length)]+vowel[getRandomInt(vowel.length)];
   } else if (fantasynametype == 5) {
-    fantasyname = vowel[Math.random(vowel.size())]+conso_en[Math.random(conso_en.size())]+vowel[Math.random(vowel.size())];
+    fantasyname = vowel[getRandomInt(vowel.length)]+conso_en[getRandomInt(conso_en.length)]+vowel[getRandomInt(vowel.length)];
   } else if (fantasynametype == 6) {
-    fantasyname = vowel[Math.random(vowel.size())]+conso_en[Math.random(conso_en.size())]+vowel[Math.random(vowel.size())]+conso_bo[Math.random(conso_bo.size())];
+    fantasyname = vowel[getRandomInt(vowel.length)]+conso_en[getRandomInt(conso_en.length)]+vowel[getRandomInt(vowel.length)]+conso_bo[getRandomInt(conso_bo.length)];
   } else if (fantasynametype == 7) {
-    fantasyname = conso_be[Math.random(conso_be.size())] + vowel[Math.random(vowel.size())];
-  } else if (fantasynametype == 8) {
-    fantasyname = conso_be[Math.random(conso_be.size())] + ven[Math.random(ven.size())];
+    fantasyname = conso_be[getRandomInt(conso_be.length)] + vowel[getRandomInt(vowel.length)];
   }
-  fantasyname = fantasyname.toString();
+  fantasyname = fantasyname.toString().toLowerCase();
   return fantasyname
 }
 document.write(randomname());
+console.log(randomname())
