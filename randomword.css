@@ -1,0 +1,50 @@
+* {
+    font-family: 'Vollkorn', serif;
+    font-size: 40px;
+    padding: 10px;
+}
+.icons {
+    border-style: none;
+    background-color: white;
+}
+button, select {
+    background-color: white;
+    border-style: solid;
+    border-color: black;
+    border-width: 3px;
+    border-radius: 5px;
+}
+button, select, input {
+    height: 70px;
+}
+#settings {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+}
+#oko {
+    display: inline;
+    border-style: solid;
+    border-width: 3px;
+    border-color: black;
+    border-radius: 5px;
+    width: 70px;
+}
+
+#header, #textfield {
+    text-align: center;
+}
+button:hover {
+    background-color: lightgray;
+}
+.settings {
+    margin: 5px;
+}
+#credit {
+    position: fixed;
+    text-align: center;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    font-size: 20px;
+}
