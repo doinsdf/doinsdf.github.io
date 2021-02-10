@@ -1,11 +1,37 @@
-<<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-  </head>
-  <body>
-    <p>h</p>
-    <h1>h</h1>
-  </body>
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Random Word</title>
+        <link href="randomword.css" rel="stylesheet">
+        <script src="https://kit.fontawesome.com/9d9b1c2a48.js" crossorigin="anonymous"></script>
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Vollkorn&display=swap" rel="stylesheet">
+        <link rel="icon" href="icon.png">
+    </head>
+    <body onload="chooseword()">
+        <button class="icons" onclick="document.location='unblock.html'">
+            <i class="fas fa-chevron-left"></i>
+        </button>
+        <p id="header">Random Word Generator</p>
+        <div id="settings">
+            <button class="settings" onclick="chooseword()">Generate Words</button>
+            <select class="settings" id="genre">
+                <option value="General">General</option>
+                <option value="Fantasy">Fantasy</option>
+                <option value="Science Fiction">Science Fiction</option>
+                <option value="Realistic Fiction">Realistic Fiction</option>
+                <option value="Mystery/Noir">Mystery/Noir</option>
+                <option value="Historical Fiction">Historical Fiction</option>
+            </select>
+            <button class="icons" class="settings" onclick="copythetext()">
+                <i class="far fa-copy"></i>
+            </button>
+            <p class="settings">Words: </p>
+            <input type="number" min="1" max="8" value="4" id="oko" class="settings">
+            <br>
+        </div>
+        <p id="textfield">be</p>
+        <script src="randomword.js"></script>
+        <div><p id="credit">Created by Daniel Jungwirth in 2021.</p></div>
+    </body>
 </html>
