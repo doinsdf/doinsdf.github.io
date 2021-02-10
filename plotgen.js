@@ -32,4 +32,3 @@ function randomname() {
   fantasyname = fantasyname.charAt(0).toUpperCase() + fantasyname.slice(1)
 }
 document.write(randomname());
-console.log(randomname())
