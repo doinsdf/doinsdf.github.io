@@ -29,6 +29,7 @@ function randomname() {
     fantasyname = conso_be[getRandomInt(conso_be.length)] + vowel[getRandomInt(vowel.length)];
   }
   fantasyname = fantasyname.toString().toLowerCase();
-  fantasyname = fantasyname.charAt(0).toUpperCase() + fantasyname.slice(1)
+  fantasyname = fantasyname.charAt(0).toUpperCase() + fantasyname.slice(1);
+  return fantasyname
 }
 document.write(randomname());
