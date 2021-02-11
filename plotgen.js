@@ -158,5 +158,6 @@ function fantasy() {
 		var thing = ["knowledge", "a magic vase", "a magic lamp", "a magic sword", "a magic dagger", "a secret", "a helmet", "a sheild", "a potion", "information"]
 		finaltext = trait + " " + hero + " named " + randomname() + " discovers " + thing[getRandomInt(thing.length)] + [" capable "]
   }
-  document.getElementById("textfield").innerHTML = finaltext
+  finaltext = finaltext.charAt(0).toUpperCase() + finaltext.slice(1);
+  document.getElementById("textfield").innerHTML = finaltext;
 }
