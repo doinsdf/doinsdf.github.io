@@ -81,7 +81,7 @@ function fantasy() {
 	var gender
 	var undertraits = underdogtraits[getRandomInt(underdogtraits.length)]
 	undertraits[0] = undertraits[0].toUpperCase()
-	var trait = str(herotraits[getRandomInt(herotraits.length)])
+	var trait = herotraits[getRandomInt(herotraits.length)].toString()
 	trait[0] = trait[0].toUpperCase()
   var boyheros = ["prince", "boy", "king", "wizard"]
   var girlheros = ["princess", "girl", "queen", "witch"]
