@@ -80,9 +80,9 @@ function fantasy() {
 	var genders = [0,1]
 	var gender
 	var undertraits = underdogtraits[getRandomInt(underdogtraits.length)]
-	undertraits[0] = undertraits[0].to_upper()
+	undertraits[0] = undertraits[0].toUpperCase()
 	var trait = str(herotraits[getRandomInt(herotraits.length)])
-	trait[0] = trait[0].to_upper()
+	trait[0] = trait[0].toUpperCase()
   var boyheros = ["prince", "boy", "king", "wizard"]
   var girlheros = ["princess", "girl", "queen", "witch"]
   if (boyheros.includes(hero)) {
