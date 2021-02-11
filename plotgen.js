@@ -69,8 +69,8 @@ function aoran(i) {
 
 function fantasy() {
 	var hero = fantasycharacters[getRandomInt(fantasycharacters.length)]
-	var friend = fantasycharacters[getRandomInt(fantasycharacters.length)]
-	var enemy = fantasyenemies[getRandomInt(fantasyenemies.length)]
+	//var friend = fantasycharacters[getRandomInt(fantasycharacters.length)]
+	//var enemy = fantasyenemies[getRandomInt(fantasyenemies.length)]
 	var plot = plots[getRandomInt(plots.length)]
 	var pron = ""
 	var pos = ""
@@ -156,7 +156,7 @@ function fantasy() {
     }
   } else if (plot == "Discovery") {
 		var thing = ["knowledge", "a magic vase", "a magic lamp", "a magic sword", "a magic dagger", "a secret", "a helmet", "a sheild", "a potion", "information"]
-		finaltext = trait + " " + hero + " named " + randomname() + " discovers " + thing[getRandomInt(thing.length)] + ["capable "]
+		finaltext = trait + " " + hero + " named " + randomname() + " discovers " + thing[getRandomInt(thing.length)] + [" capable "]
   }
   document.getElementById("textfield").innerHTML = finaltext
 }
