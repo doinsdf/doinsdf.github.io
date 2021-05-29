@@ -5,37 +5,94 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Wikipedia Game</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text&display=swap" rel="stylesheet">
 </head>
-<body>
+<body onload="getArticle()">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.js"></script></head>
     <script>
-    let xhttp = new XMLHttpRequest();
-    function setCharAt(str,index,chr) {
-        if(index > str.length-1) return str;
-        return str.substring(0,index) + chr + str.substring(index+1);
-    }
-    xhttp.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
-            var page = xhttp.response;
-            var excerpt = page["extract_html"];
-            var indices = [];
-            document.getElementById("title").innerHTML = page["title"];
-            var wordarray = excerpt.split(" ");
-            for (i = 0; i < 4; i++) {
-                var index = wordarray[Math.floor(Math.random()*wordarray.length)];
-                index = wordarray.indexOf(index);
-                wordarray[index] = "_".repeat(wordarray[index].length)
-                excerpt = wordarray.join(" ");
-            }
-            document.getElementById("paragraph").innerHTML = excerpt;
-            
+        var overallscore = 0;
+        function updateScore() {
+            document.getElementById("score").innerHTML = "Score: ".concat(overallscore);
         }
-    };
-    url = "https://en.wikipedia.org/api/rest_v1/page/random/summary";
-    xhttp.open("GET", url, true);
-    xhttp.responseType = 'json';
-    xhttp.send();
+        function getArticle() {
+            let xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    var page = xhttp.response;
+                    var excerpt = page["extract"];
+                    var indices = [];
+                    document.getElementById("title").innerHTML = page["title"];
+                    var wordarray = excerpt.split(" ");
+                    for (i = 0; i < 4; i++) {
+                        var index = wordarray[Math.floor(Math.random()*wordarray.length)];
+                        index = wordarray.indexOf(index);
+                        var tag = CryptoJS.AES.encrypt(wordarray[index], "9128756384269873465");
+                        wordarray[index] = "<input type='text' class='wordinput' data-tag=".concat(tag).concat("></input>");
+                        excerpt = wordarray.join(" ");
+                    }
+                    document.getElementById("paragraph").innerHTML = excerpt;
+                    document.getElementById("checkbtn").onclick = function() {check();};
+                    
+                }
+            };
+            url = "https://en.wikipedia.org/api/rest_v1/page/random/summary";
+            xhttp.open("GET", url, true);
+            xhttp.responseType = 'json';
+            xhttp.send();
+        }
+
+        function check() {
+            var inputs = document.getElementsByClassName("wordinput");
+            for (i=0; i < inputs.length; i++) {
+                var decryptedstr = CryptoJS.AES.decrypt(inputs[i].getAttribute("data-tag"), "9128756384269873465").toString(CryptoJS.enc.Utf8);
+                if (decryptedstr === inputs[i].value) {
+                    overallscore += 1;
+                    console.log(overallscore);
+                    updateScore();
+
+                    
+                }
+                
+            }
+            getArticle();
+        }
     </script>
-    <h1 id="title"></h1>
-    <p id="paragraph"></p>
+    <style>
+        * {
+            font-family: "Crimson Text", serif;
+        }
+        p, input {
+            font-size: 20px;
+        }
+        p {
+            line-height: 1.5;
+        }
+        input, input:focus {
+            border: 2px solid black;
+            border-radius: 10px;
+            outline: none;
+        }
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        .question {
+            width: 70%;
+            height: 70%;
+            border: 2px solid black;
+            border-radius: 10px;
+            padding: 10px;
+        }
+    </style>
+    <div class="question">
+        <p id="score">Score: 0</p>
+        <h1 id="title"></h1>
+        <p id="paragraph"></p>
+        <button onclick="check()" id="checkbtn">Submit</button>
+    </div>
+    
 </body>
 </html>
