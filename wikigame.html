@@ -41,6 +41,13 @@
             }
             return arr;
         }
+        function sleep(milliseconds) {
+          const date = Date.now();
+          let currentDate = null;
+          do {
+            currentDate = Date.now();
+          } while (currentDate - date < milliseconds);
+        }
         function getArticle() {
             let xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function() {
@@ -84,16 +91,15 @@
                 var decryptedstr = CryptoJS.AES.decrypt(inputs[i].getAttribute("data-tag"), "9128756384269873465").toString(CryptoJS.enc.Utf8);
                 if (decryptedstr === inputs[i].value) {
                     overallscore += 1;
-                    console.log(overallscore);
                     inputs[i].style.borderColor = "green";
                     inputs[i].value = inputs[i].value.concat("✔️");
+                    sleep(2000);
                     updateScore();
-                    console.log(decryptedstr);
-                }
+]                }
                 else {
                     inputs[i].style.borderColor = "red";
                     inputs[i].value = inputs[i].value.concat("❌");
-                    console.log(decryptedstr);
+                    sleep(2000);
                 }
                 
             }
