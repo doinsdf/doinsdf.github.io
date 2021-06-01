@@ -54,6 +54,9 @@
                     numbers = fourRandomNumbers(wordarray);
                     console.log(numbers);
                     for (i = 0; i < 4; i++) {
+                        wordarray[numbers[i]] = wordarray[numbers[i]].replaceAll(",", "");
+                        wordarray[numbers[i]] = wordarray[numbers[i]].replaceAll(".", "");
+                        wordarray[numbers[i]] = wordarray[numbers[i]].replaceAll(""", "");
                         var index = wordarray[numbers[i]];
                         var options = [];
                         options.push(index);
