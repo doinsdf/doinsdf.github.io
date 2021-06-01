@@ -6,14 +6,40 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Wikipedia Game</title>
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Goudy+Bookletter+1911&display=swap" rel="stylesheet">
 </head>
 <body onload="getArticle()">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.js"></script></head>
     <script>
         var overallscore = 0;
+        var fillerwords = ["the","at","there","some","my","of","be","use","her","than","and","this","an","would","first","a","have","each","make","water","to","from","which","like","been","in","or","she","him","call","is","one","do","into","who","you","had","how","time","oil","that","by","their","has","its","it","word","if","look","now","he","but","will","two","find","was","not","up","more","long","for","what","other","write","down","on","all","about","go","day","are","were","out","see","did","as","we","many","number","get","with","when","then","no","come","his","your","them","way","made","they","can","these","could","may","I","said","so","people","part"];
         function updateScore() {
             document.getElementById("score").innerHTML = "Score: ".concat(overallscore);
+        }
+        function shuffle(array) {
+            var currentIndex = array.length,  randomIndex;
+
+            // While there remain elements to shuffle...
+            while (0 !== currentIndex) {
+
+                // Pick a remaining element...
+                randomIndex = Math.floor(Math.random() * currentIndex);
+                currentIndex--;
+
+                // And swap it with the current element.
+                [array[currentIndex], array[randomIndex]] = [
+                array[randomIndex], array[currentIndex]];
+            }
+
+            return array;
+        }
+        function fourRandomNumbers(text) {
+            var arr = [];
+            while(arr.length < 4){
+                var r = Math.floor(Math.random() * text.length-1) + 1;
+                if(arr.indexOf(r) === -1) arr.push(r);
+            }
+            return arr;
         }
         function getArticle() {
             let xhttp = new XMLHttpRequest();
@@ -23,13 +49,20 @@
                     var excerpt = page["extract"];
                     var indices = [];
                     document.getElementById("title").innerHTML = page["title"];
+                    titlearray = page["title"].split(" ");
                     var wordarray = excerpt.split(" ");
+                    numbers = fourRandomNumbers(wordarray);
+                    console.log(numbers);
                     for (i = 0; i < 4; i++) {
-                        var index = wordarray[Math.floor(Math.random()*wordarray.length)];
+                        var index = wordarray[numbers[i]];
+                        var options = [];
+                        options.push(index);
                         index = wordarray.indexOf(index);
-                        var tag = CryptoJS.AES.encrypt(wordarray[index], "9128756384269873465");
-                        wordarray[index] = "<input type='text' class='wordinput' data-tag=".concat(tag).concat("></input>");
-                        excerpt = wordarray.join(" ");
+                        if (!(titlearray.includes(wordarray[index]) || fillerwords.includes(wordarray[index]))) {
+                            var tag = CryptoJS.AES.encrypt(wordarray[index], "9128756384269873465");
+                            wordarray[index] = "<input type='text' list='".concat(tag).concat("' class='wordinput' style='width: ").concat((wordarray[index].length * 24).toString()).concat("px; max-width=650px;' data-tag='").concat(tag).concat("'/><datalist id='").concat(tag).concat("'>").concat("<option>").concat(options[0]).concat("</option>").concat("<option>").concat(options[1]).concat("</option>").concat("<option>").concat(options[2]).concat("</option>").concat("<option>").concat(options[3]).concat("</option>").concat("<option>").concat(options[4]).concat("</option>").concat("</datalist>");
+                            excerpt = wordarray.join(" ");
+                        }
                     }
                     document.getElementById("paragraph").innerHTML = excerpt;
                     document.getElementById("checkbtn").onclick = function() {check();};
@@ -49,9 +82,15 @@
                 if (decryptedstr === inputs[i].value) {
                     overallscore += 1;
                     console.log(overallscore);
+                    inputs[i].style.borderColor = "green";
+                    inputs[i].value = inputs[i].value.concat("✔️");
                     updateScore();
-
-                    
+                    console.log(decryptedstr);
+                }
+                else {
+                    inputs[i].style.borderColor = "red";
+                    inputs[i].value = inputs[i].value.concat("❌");
+                    console.log(decryptedstr);
                 }
                 
             }
@@ -60,7 +99,7 @@
     </script>
     <style>
         * {
-            font-family: "Crimson Text", serif;
+            font-family: "Goudy Bookletter 1911", serif;
         }
         p, input {
             font-size: 20px;
@@ -69,9 +108,13 @@
             line-height: 1.5;
         }
         input, input:focus {
-            border: 2px solid black;
-            border-radius: 10px;
+            border-width: 0px 0px 2px 0px;
+            border-color: black;
             outline: none;
+            text-align: center;
+        }
+        input:focus {
+            background-color: lightgray;
         }
         body {
             display: flex;
