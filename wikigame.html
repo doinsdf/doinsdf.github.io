@@ -60,7 +60,7 @@
                         index = wordarray.indexOf(index);
                         if (!(titlearray.includes(wordarray[index]) || fillerwords.includes(wordarray[index]))) {
                             var tag = CryptoJS.AES.encrypt(wordarray[index], "9128756384269873465");
-                            wordarray[index] = "<input type='text' list='".concat(tag).concat("' class='wordinput' style='width: ").concat((wordarray[index].length * 24).toString()).concat("px; max-width=650px;' data-tag='").concat(tag).concat("'/><datalist id='").concat(tag).concat("'>").concat("<option>").concat(options[0]).concat("</option>").concat("<option>").concat(options[1]).concat("</option>").concat("<option>").concat(options[2]).concat("</option>").concat("<option>").concat(options[3]).concat("</option>").concat("<option>").concat(options[4]).concat("</option>").concat("</datalist>");
+                            wordarray[index] = "<input type='text' list='".concat(tag).concat("' class='wordinput' style='width: ").concat((wordarray[index].length * 24).toString()).concat("px; max-width=650px;' data-tag='").concat(tag).concat("'/>";
                             excerpt = wordarray.join(" ");
                         }
                     }
