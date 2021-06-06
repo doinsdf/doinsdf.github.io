@@ -6,7 +6,6 @@
 
 body {
   background: #000;
-  filter: brightness(50%);
   color: rgba(0, 0, 0, 0.6);
   font-size: 14px;
   line-height: 1.6em;
