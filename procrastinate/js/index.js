@@ -78,7 +78,8 @@ $(document).ready(function() {
 
     rippleDiv.css({
       top: rippleY - (rippleSize / 2),
-      left: rippleX - (rippleSize / 2)
+      left: rippleX - (rippleSize / 2),
+      background: $(this).attr("ripple-color")
     }).appendTo($(this));
 
     window.setTimeout(function() {
