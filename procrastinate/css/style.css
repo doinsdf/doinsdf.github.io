@@ -5,7 +5,9 @@
 }
 
 body {
-  background: #000;
+  background-image: url("../Images/vintage-paper.png");
+  background-repeat: repeat;
+  filter: brightness(50%);
   color: rgba(0, 0, 0, 0.6);
   font-size: 14px;
   line-height: 1.6em;
