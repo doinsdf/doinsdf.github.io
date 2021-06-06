@@ -5,7 +5,8 @@
 }
 
 body {
-  background: #000;
+  background-image: url("../Images/darkened-paper.png");
+  background-repeat: repeat;
   color: rgba(0, 0, 0, 0.6);
   font-size: 14px;
   line-height: 1.6em;
