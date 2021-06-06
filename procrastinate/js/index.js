@@ -14,19 +14,6 @@ $(document).ready(function() {
   }
 
   function animateContentColor() {
-    var getProductColor = $('.product.active').attr('product-color');
-
-    $('body').css({
-      background: getProductColor
-    });
-
-    $('.title').css({
-      color: getProductColor
-    });
-
-    $('.btn').css({
-      color: getProductColor
-    });
   }
 
   var productItem = $('.product'),
