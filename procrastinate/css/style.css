@@ -5,7 +5,7 @@
 }
 
 body {
-  background-image: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url("../Images/vintage-paper.png");
+  background-image: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url("../Images/darkened-paper.png");
   background-repeat: repeat;
   filter: brightness(50%);
   color: rgba(0, 0, 0, 0.6);
