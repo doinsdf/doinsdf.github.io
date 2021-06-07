@@ -58,7 +58,7 @@
                     var excerpt = page.query.pages[0].extract;
                     var indices = [];
                     document.getElementById("title").innerHTML = page.query.pages[0].title;
-                    titlearray = page.query.pages[0].extract.split(" ");
+                    titlearray = page.query.pages[0].title.split(" ");
                     var wordarray = excerpt.split(" ");
                     numbers = fourRandomNumbers(wordarray);
                     console.log(numbers);
