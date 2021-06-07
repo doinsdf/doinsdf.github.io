@@ -74,6 +74,8 @@
                             var tag = CryptoJS.AES.encrypt(wordarray[index], "9128756384269873465");
                             wordarray[index] = "<input type='text' list='".concat(tag).concat("' class='wordinput' style='width: ").concat((wordarray[index].length * 24).toString()).concat("px; max-width=650px;' data-tag='").concat(tag).concat("'/>");
                             excerpt = wordarray.join(" ");
+                        } else {
+                            console.log("rejected because it was in the title or was a filler word.");
                         }
                     }
                     document.getElementById("paragraph").innerHTML = excerpt;
