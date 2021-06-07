@@ -80,12 +80,9 @@
                     
                 }
             };
-            url = "https://en.wikipedia.org/w/api.php?action=query&prop=extracts&exsentences=5&exlimit=1&titles=".concat(pageTitle).concat("&explaintext=1&formatversion=2");
+            url = "https://en.wikipedia.org/w/api.php?action=query&prop=extracts&exsentences=5&exlimit=1&titles=".concat(pageTitle).concat("&explaintext=1&formatversion=2&origin=doinsdf.github.io");
             xhttp.open("GET", url, true);
             xhttp.responseType = 'json';
-            xhttp.setRequestHeader("Origin", "https://doinsdf.github.io");
-            xhttp.setRequestHeader("Content-Type", "application/json; charset=UTF-8");
-
             xhttp.send();
         }
 
