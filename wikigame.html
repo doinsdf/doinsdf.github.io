@@ -76,6 +76,8 @@
                             excerpt = wordarray.join(" ");
                         } else {
                             console.log("rejected because it was in the title or was a filler word.");
+                            console.log(titlearray);
+                            console.log(fillerwords);
                         }
                     }
                     document.getElementById("paragraph").innerHTML = excerpt;
