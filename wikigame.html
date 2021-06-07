@@ -55,9 +55,9 @@
                 if (this.readyState == 4 && this.status == 200) {
                     var page = xhttp.response;
                     console.log(page);
-                    var excerpt = page["query"]["pages"]["extract"];
+                    var excerpt = page.query.pages[0].extract;
                     var indices = [];
-                    document.getElementById("title").innerHTML = page["query"]["pages"]["title"];
+                    document.getElementById("title").innerHTML = page.query.pages[0].title;
                     titlearray = page["title"].split(" ");
                     var wordarray = excerpt.split(" ");
                     numbers = fourRandomNumbers(wordarray);
