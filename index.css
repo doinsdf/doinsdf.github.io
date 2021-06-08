@@ -1,0 +1,54 @@
+
+html {
+    transition: filter .2s;
+}
+body {
+    background-color: #f9f9f9;
+}
+
+.dropshadow {
+    box-shadow: 0 1px 1px rgba(0,0,0,0.11), 
+        0 2px 2px rgba(0,0,0,0.11), 
+        0 4px 4px rgba(0,0,0,0.11), 
+        0 8px 8px rgba(0,0,0,0.11), 
+        0 16px 16px rgba(0,0,0,0.11), 
+        0 32px 32px rgba(0,0,0,0.11);
+    margin: 50px;
+    padding: 20px;
+    border-radius: 10px;
+    border: 2px solid black;
+    transition: transform .2s;
+}
+.dropshadow:hover {
+    transform: scale(1.1, 1.1);
+}
+button.darkmode {
+    position: fixed;
+    right: 0px;
+    top: 0px;
+    outline: none;
+    background-color: #f9f9f9;
+    padding: 10px;
+}
+div.link {
+    width: 300px;
+    height: 200px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+div.labelforgroup {
+    margin: 50px;
+}
+h1 {
+    font-family: 'Libre Franklin', cursive;
+    margin-block-start: 0px;
+    margin-block-end: 0px;
+}
+p {
+    font-family: 'Merriweather', sans-serif;
+}
+a {
+    text-decoration: none;
+    color: black;
+}
