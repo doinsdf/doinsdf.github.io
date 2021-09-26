@@ -1,0 +1,32 @@
+{
+    "theme_color": "#ffffff",
+    "background_color": "#000000",
+    "display": "fullscreen",
+    "scope": "",
+    "start_url": "https://doinsdf.gihub.io/1001",
+    "name": "1001 Books You Must Read Before You Die",
+    "short_name": "1001",
+    "description": "Store your progress on reading Peter Boxall's list of essential books",
+    "icons": [
+        {
+            "src": "/icon-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "/icon-256x256.png",
+            "sizes": "256x256",
+            "type": "image/png"
+        },
+        {
+            "src": "/icon-384x384.png",
+            "sizes": "384x384",
+            "type": "image/png"
+        },
+        {
+            "src": "/icon-512x512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ]
+}
